@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信息索引 · im体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f1f3f5;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 1.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* 主视觉卡片 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02);
+            border: 1px solid #e9ecef;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .hero-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .hero-card h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0b1e33;
+            margin-bottom: 0.75rem;
+        }
+        .hero-card .sub {
+            font-size: 1.1rem;
+            color: #55657b;
+            max-width: 600px;
+            margin: 0 auto 1.2rem;
+        }
+        .hero-card .meta-badge {
+            display: inline-block;
+            background: #eef0f4;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #334155;
+            border: 1px solid #dce0e7;
+        }
+        /* 信息卡片网格 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 1.6rem 1.5rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+        .card .icon-symbol {
+            font-size: 1.8rem;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #0f1e2f;
+        }
+        .card p, .card ul {
+            font-size: 0.95rem;
+            color: #3b4a5f;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card ul li {
+            padding: 0.2rem 0;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+        .card ul li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #8a9bb5;
+        }
+        .badge-light {
+            display: inline-block;
+            background: #edf2f7;
+            border-radius: 30px;
+            padding: 0.2rem 0.75rem;
+            font-size: 0.8rem;
+            color: #2d3f57;
+            border: 1px solid #dde3ec;
+            margin-top: 0.6rem;
+        }
+        /* 自然链接段落 */
+        .link-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 1.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+        }
+        .link-card p {
+            font-size: 1rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+        .link-card a {
+            color: #1a4d7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b7cadf;
+            transition: border-color 0.15s, color 0.15s;
+        }
+        .link-card a:hover {
+            border-bottom-color: #1a4d7a;
+            color: #0a2a44;
+        }
+        .link-card .minor-note {
+            color: #6b7a93;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        /* FAQ摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            border-radius: 18px;
+            padding: 1.5rem 2rem 1.8rem;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.02);
+            margin-bottom: 2rem;
+        }
+        .faq-mini h3 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #0f1e2f;
+        }
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #1a2b40;
+        }
+        .faq-a {
+            color: #3f516a;
+            font-size: 0.95rem;
+            margin-top: 0.2rem;
+        }
+        .faq-a a {
+            color: #1a4d7a;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd6e8;
+        }
+        .faq-a a:hover {
+            border-bottom-color: #1a4d7a;
+        }
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b7a93;
+            border-top: 1px solid #dde3ec;
+            padding-top: 1.8rem;
+            margin-top: 1rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .hero-card { padding: 2rem 1.2rem; }
+            .hero-card h1 { font-size: 1.9rem; }
+            .grid-3 { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 主视觉卡片 -->
+    <div class="hero-card">
+        <h1>im体育 · 信息索引</h1>
+        <div class="sub">围绕资料整理与内容归档，提供结构化的参考节点。</div>
+        <span class="meta-badge">聚合 · 分类 · 索引</span>
+    </div>
+
+    <!-- 用途卡片 (3列) -->
+    <div class="grid-3">
+        <div class="card">
+            <div class="icon-symbol">▹</div>
+            <h3>资料归档</h3>
+            <p>赛事记录、规则说明、术语对照等材料采用卡片式归类，便于横向比较与快速定位。每个条目保留原始出处与版本标记。</p>
+            <span class="badge-light">结构化条目</span>
+        </div>
+        <div class="card">
+            <div class="icon-symbol">▹</div>
+            <h3>场景索引</h3>
+            <p>从训练辅助到观赛指南，按实际使用场景拆解为独立模块。每个模块包含背景概述、要点梳理及外部参考链接。</p>
+            <span class="badge-light">场景化拆解</span>
+        </div>
+        <div class="card">
+            <div class="icon-symbol">▹</div>
+            <h3>术语表与对照</h3>
+            <p>收录常见术语、缩写及多语言对应，附带简要释义。适用于内容审校、翻译参考及日常查阅。</p>
+            <span class="badge-light">简明对照</span>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 补充卡片 两列灵活 -->
+    <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+        <div class="card">
+            <h3>内容编辑 / 资料整理</h3>
+            <ul>
+                <li>需要可靠的信息锚点</li>
+                <li>关注版本更新与来源</li>
+                <li>偏好细颗粒度分类</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>分析 / 研究参考</h3>
+            <ul>
+                <li>数据与事实核查</li>
+                <li>纵向历史记录对比</li>
+                <li>跨体系术语映射</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>一般兴趣与拓展</h3>
+            <ul>
+                <li>理解基础框架</li>
+                <li>浏览分类导航</li>
+                <li>获取延伸阅读入口</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="link-card">
+        <p>本索引页面向资料整理场景，体系内相关内容基于 <a href="https://indexs-imsports.com">im体育</a> 构建。当中涉及的分类框架、术语条目及场景卡片均以客观信息为基准，不包含主观评价或推广成分。</p>
+        <p class="minor-note">如需获取完整索引或参考具体条目，可直接通过上方链接访问。所有材料均保留原始来源标记，建议结合原始页面交叉核对。</p>
+    </div>
+
+    <!-- FAQ 摘要 (非完整FAQ，仅摘取典型条目) -->
+    <div class="faq-mini">
+        <h3>信息索引 FAQ 摘要</h3>
+        <div class="faq-item">
+            <div class="faq-q">Q：索引的更新频率是怎样的？</div>
+            <div class="faq-a">条目根据资料变化动态调整，一般每季度做一次整体审校。具体条目的最后修订时间可在详情页底部查看。相关内容可参考 <a href="https://indexs-imsports.com">im体育</a> 内标记。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：术语对照表收录范围？</div>
+            <div class="faq-a">主要覆盖常见术语、机构缩写以及部分多语言直译。暂不包含生僻地区用语或未公开内部代号。对照表仅作为参考工具，不构成权威定义。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q：卡片内容是否可以转载？</div>
+            <div class="faq-a">每张卡片底部均标注了来源或参考链接，转载时请保留原始出处。商业用途建议直接咨询原索引维护方。</div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        索引维护 · 信息卡片版 &nbsp;|&nbsp; 基于原始资料整理，仅供参考
+    </div>
+</div>
+</body>
+</html>
