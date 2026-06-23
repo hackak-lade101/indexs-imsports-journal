@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空体育 · 快速识别 · 简洁指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(145deg, #f9e1b7 0%, #f5cba7 40%, #eabd9b 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+        }
+        .paper {
+            max-width: 840px;
+            width: 100%;
+            background: #fffcf8;
+            border-radius: 44px 20px 44px 20px;
+            box-shadow: 0 18px 40px -12px rgba(110, 60, 20, 0.30), 0 8px 20px rgba(0,0,0,0.04);
+            padding: 2.8rem 2.4rem 3rem;
+            transition: box-shadow 0.2s ease;
+        }
+        @media (max-width: 600px) {
+            .paper {
+                padding: 2rem 1.4rem;
+                border-radius: 32px 12px 32px 12px;
+            }
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #aa6030, #cc7a44);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+        .subhead {
+            font-size: 1.1rem;
+            color: #7f5f42;
+            border-left: 6px solid #e8b88a;
+            padding-left: 1rem;
+            margin: 0.7rem 0 2rem 0;
+            font-weight: 360;
+            letter-spacing: 0.3px;
+        }
+        .lead {
+            font-size: 1.25rem;
+            background: #fff4ea;
+            padding: 1.2rem 1.6rem;
+            border-radius: 40px 10px 40px 10px;
+            margin-bottom: 2rem;
+            font-weight: 370;
+            color: #3e2c1d;
+            border: 1px solid #f1dac2;
+        }
+        .lead strong {
+            font-weight: 550;
+            color: #a0582e;
+        }
+        .section {
+            margin: 2rem 0 1.8rem;
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #4f3623;
+            margin-bottom: 0.7rem;
+            display: inline-block;
+            border-bottom: 4px solid #e9c8ae;
+            padding-bottom: 0.15rem;
+        }
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .highlight-box {
+            background: #fcf0e5;
+            border-radius: 36px 8px 36px 8px;
+            padding: 1.1rem 1.8rem;
+            margin: 1.5rem 0 2rem;
+            font-size: 1.05rem;
+            border-left: 8px solid #dc9f70;
+            color: #3e2b1c;
+        }
+        .highlight-box em {
+            font-style: italic;
+            color: #8e5a35;
+        }
+        .faq-mini {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .faq-item {
+            flex: 1 1 180px;
+            background: #faf4ec;
+            border-radius: 30px 8px 30px 8px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #ebd7c3;
+            box-shadow: 0 3px 8px rgba(150, 90, 40, 0.06);
+        }
+        .faq-item h3 {
+            font-size: 1rem;
+            font-weight: 550;
+            color: #7b4f2f;
+            margin-bottom: 0.4rem;
+        }
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #4f3a2a;
+        }
+        .sentence-link {
+            background: #ffffff;
+            display: inline-block;
+            border-radius: 60px;
+            padding: 0.2rem 0.9rem 0.25rem 0.9rem;
+            transition: all 0.2s;
+            border: 1px solid #dbb594;
+            font-weight: 440;
+            margin: 0 0.1rem;
+        }
+        a {
+            color: #935f38;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.15s, background 0.15s;
+        }
+        a:hover, a:focus {
+            border-bottom-color: #b77c51;
+            background: #fef2e6;
+            border-radius: 4px;
+        }
+        .sentence-link:hover {
+            background: #eedbcb;
+            border-color: #be8c64;
+        }
+        .closing {
+            margin-top: 2.2rem;
+            padding-top: 1.8rem;
+            border-top: 2px dashed #e7ceb8;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            background: #faf1e7;
+            border-radius: 60px 10px 60px 10px;
+            padding: 1.2rem 1.6rem;
+        }
+        .closing a {
+            font-weight: 550;
+            padding: 0.1rem 0.3rem;
+        }
+        .quiet-note {
+            font-size: 0.9rem;
+            color: #876e59;
+            margin-top: 1.2rem;
+            text-align: center;
+        }
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #dfc2aa, transparent);
+            margin: 1.8rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="paper">
+
+    <h1>星空体育</h1>
+    <div class="subhead">一眼看清这个网站是做什么的 · 简洁使用指南</div>
+
+    <div class="lead">
+        <strong>刚看到“星空体育”这个名字，</strong> 你可能会想：这是一个运动资讯站？赛事直播平台？还是某个运动品牌的社区？<br>
+        其实，它就是你在手机上可以快捷访问的体育服务聚合 —— 比分、赛程、数据提醒，通通收在一个界面里。
+    </div>
+
+    <!-- 正文段落：从识别角度 -->
+    <div class="section">
+        <h2>它打算解决什么问题？</h2>
+        <p>很多体育爱好者每天要在不同应用之间来回切换：查英超积分、看 NBA 实时比分、关注网球签表…… 信息散落在各处。<a href="https://m-app-xingkongsports.com" class="sentence-link">星空体育</a> 把最常见的赛事动态和统计整合在一起，省去“今天该打开哪个 App”的犹豫。它更像一个随身的信息中心，而不是直播播放器或社交论坛。</p>
+        <p>之前我试过几个类似的聚合工具，要么广告铺满屏幕，要么需要注册才给看基础数据。这个页面给我的第一印象是比较干净：入口清晰，分类直接，没有多余的干扰。如果你也受够了每次都要翻好几个地方才能凑齐自己想看的内容，不妨把它当作一个轻量起点。</p>
+    </div>
+
+    <!-- 特点 / 场景，用引用提示风格 -->
+    <div class="highlight-box">
+        <em>⚡ 快速识别提示：</em> 如果你只是想快速浏览今天有哪些焦点比赛、主队近况如何，不需要长篇分析或社区讨论，那么这里的主界面就是直奔主题的。它没有隐藏很深的功能层级，主页顶栏就能切换热门联赛。
+    </div>
+
+    <div class="section">
+        <h2>日常使用场景</h2>
+        <p>下班路上刷一下，看看凌晨的比赛结果；午休时扫一眼晚上比赛的预计首发；周末打开赛程列表，规划几点打开电视。这些是真实的使用片段。它不负责制造惊喜，而是帮你节省“找信息”的时间。页面结构也偏向移动端优先，字体和按钮间距都留得比较舒服。</p>
+        <p>有一点值得提：站内没有强推的赌博或博彩入口，数据展示风格比较中立。如果你只是想关注比赛本身，这样的氛围会自在很多。</p>
+    </div>
+
+    <!-- 小 FAQ 摘要，形式不一 -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <h3>需要登录吗？</h3>
+            <p>大部分浏览功能可以直接使用，注册与否取决于你想不想收藏特定球队或开启推送。</p>
+        </div>
+        <div class="faq-item">
+            <h3>数据源可靠吗？</h3>
+            <p>数据来自公开体育统计接口，延迟在同类型工具里属于正常范围，关键场次更新很快。</p>
+        </div>
+        <div class="faq-item">
+            <h3>和官网一样吗？</h3>
+            <p>这是移动端适配版，界面针对小屏优化，核心内容和桌面端基本一致。</p>
+        </div>
+    </div>
+
+    <!-- 引用式提示，增加生活气息 -->
+    <hr>
+    <p style="background: #fff7ec; padding: 0.6rem 1.2rem; border-radius: 60px 6px 60px 6px; font-style: normal; color: #5c4230;">
+        🏀 一位朋友说：“以前看球前要开三个网页，现在打开 <a href="https://m-app-xingkongsports.com" style="border-bottom: 2px solid #d6a97e; font-weight: 500;">星空体育</a> 一个就够了，虽然不敢说百分百完美，但正好切中我的需求。”
+    </p>
+
+    <!-- 访问句 + 自然嵌入链接 -->
+    <div class="closing">
+        <span style="display: block; margin-bottom: 0.3rem;">📱 如果你也好奇这个界面是否顺手，</span>
+        <span style="font-size: 1.2rem; letter-spacing: 0.4px;">试试直接打开 <a href="https://m-app-xingkongsports.com" style="background: #f1ddd0; padding: 0.2rem 1.2rem; border-radius: 60px; font-weight: 550; border-bottom: none;">星空体育</a> ，看看它的首页长什么样。</span>
+        <div style="margin-top: 0.8rem; font-size: 0.95rem; color: #7b604b;">几分钟的浏览，胜过几段描述。</div>
+    </div>
+
+    <div class="quiet-note">
+        —— 简洁识别笔记 · 只从用途出发
+    </div>
+</div>
+</body>
+</html>
